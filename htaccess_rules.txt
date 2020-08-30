@@ -1,0 +1,9 @@
+# 1. Host redirect
+# redirect go.dsandler.org to dsandler.org/go
+RewriteCond %{HTTP_HOST} ^go.dsandler.org$ [NC]
+RewriteRule ^(.*)$ https://dsandler.org/go/$1 [L]
+
+# 2. Path redirect
+RewriteRule ^(.*)$ https://dsandler.org/go/$1 [L]
+RewriteRule ^go$ 			    https://dsandler.org/go/ [L,R=301]
+RewriteRule ^go/(.*)$ 			https://dsandler.org/goto/goto.cgi/$1 [L]
